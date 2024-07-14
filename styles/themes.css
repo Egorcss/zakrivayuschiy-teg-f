@@ -7,6 +7,7 @@
 через медизапрос пользовательских предпочтений
 */
 
+/* ПЕРЕМЕННЫЕ СО СВЕТЛОЙ ТЕМОЙ */
 :root.theme-light {
   --main-font-card-title: 700;
   --main-font-card-text: 400;
@@ -25,8 +26,11 @@
         #e7e7e7 0.01%, 
         #1a1a1a
       );
+  --stroke-color: #fff;    
+  --color-mix: #fff;
 }
 
+/* ПЕРЕМЕННЫЕ СО ТЕМНОЙ ТЕМОЙ */
 :root.theme-dark {
   --main-font-card-title: 785;
   --main-font-card-text: 465;
@@ -42,10 +46,11 @@
         transparent 2px 4px
       ),
         linear-gradient(
-        #e7e7e7 0.01%, 
-        #1a1a1a
+        #007f0c 0.01%, 
+        #004306
       );
-  
+  --stroke-color: #000;
+  --color-mix: #00CC14;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,5 +72,7 @@
         #007f0c 0.01%, 
         #004306
       );
+    --stroke-color: #000;
+    --color-mix: #00CC14;
   }  
 }

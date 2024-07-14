@@ -31,44 +31,403 @@
   background-size: cover;
 }
 
+/* ХЭДЕР */
 .header {
-  width: 375px;
+  max-width: 700px;
   min-height: 327px;
   margin: 100px auto;
-  outline: 1px solid red;
   background-color: var(--background-color);
   font-family: var(--accent-font);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: end;
-  row-gap: 20px;
+  /* от 20 до 30 пикселей */
+  row-gap: clamp(1.25rem, 1.0299rem + 0.939vw, 1.875rem);
+  border: 2px solid var(--accent-color);
 }
 
 .header__title {
-  font-size: 49px;
-  font-weight: 400;
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: 49px;
-  margin-top: ;
+  margin-top: 145px;
+  text-decoration: none;
 }
 
 .header__text {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: 14px;
   text-transform: uppercase;
 }
 
+/* СПИСОК С КНОПКАМИ */
 .theme-menu__list {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
   margin-bottom: 25px;
+  margin-left: 25px;
 }
 
+/* КНОПКА */
 .theme-menu__button {
   background-color: transparent;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
+  position: relative;
 }
+
+/* СТРЕЛОЧКА К АКТИВНОЙ КНОПКЕ */
+.theme-menu__button:disabled::before {
+  position: absolute;
+  content: '▶';
+  color: var(--accent-color);
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+/* САМА АКТИВНАЯ КНОПКА */
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:hover {
+  transition: opacity 0.3s ease;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  transition: opacity 0.3s ease;
+  opacity: 0.6;
+}
+
+/* ПОЯВЛЯЮЩАЯСЯ ПОЛОСКА У КНОПКИ
+ПРИ ИСПОЛЬЗОВАНИИ КЛАВИШИ TAB */
+.theme-menu__button::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 3px;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  background-color: var(--accent-color);
+  transform-origin: left;
+  display: block;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+  opacity: 0.6;
+}
+
+
+
+
+
+/* ОСНОВНОЙ КОНТЕНТ MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 50px;
+}
+
+.card {
+  max-width: 700px;
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+.card__title {
+  margin: 5px 15px 5px 10px;
+  font-size: 18px;
+  font-weight: 'wght' var(--main-font-card-title);
+  line-height: 21.78px;
+  text-align: left;
+}
+
+.card__image {
+  width: 100%;
+  min-height: 371px;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.card__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ФИЛЬТРЫ */
+.one-filter {
+  filter: drop-shadow(0 0 20px rgb(247, 247, 100));
+}
+
+.two-filter {
+  filter: brightness(200%);
+}
+
+.three-filter {
+  filter: contrast(300%);
+}
+
+.four-filter {
+  filter: saturate(250%);
+}
+
+.five-filter {
+  filter: blur(3px);
+}
+
+.six-filter {
+  filter: grayscale(80%);
+}
+
+.seven-filter {
+  filter: hue-rotate(0.5turn);
+}
+
+.eight-filter {
+  filter: sepia(0.6) invert(100%);
+}
+
+/* ТЕКСТ НА КАРТИНКЕ С ОБВОДКОЙ И РЕЖИМОМ СМЕШИВАНИЯ */
+.card__image .text-on-image {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  color: var(--accent-color);
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  text-shadow: 0 0 1px var(--stroke-color);
+}
+
+/* ПРОВЕРКА НА ПОДДЕРЖКУ КРУТОГО СВОЙСТВА */
+@supports(-webkit-text-stroke: 1px var(--stroke-color)) {
+  .card__image .text-on-image {
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-shadow: none;
+  }
+} 
+
+.card__text {
+  padding: 25px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 'wght' var(--main-font-card-text);
+}
+
+/* ОТМЕНЯЮ ОТСТУП СВЕРХУ У 2 АБЗАЦА */
+.card__text:nth-of-type(2) {
+  padding-top: 0;
+}
+
+/* КНОПКИ С СЕРДЦЕМ И ТЕКСТОМ */
+.card__buttons {
+  display: flex;
+  justify-content: end;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+
+/* КНОПКА С СЕРДЕЧКОМ */
+.card__icon-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  transition: border 0.3s ease;
+  border: 2px solid var(--accent-color);
+}
+
+/* КНОПКА С ТЕКСТОМ */
+.card__like-button {
+  background-color: transparent;
+  padding: 5px 35px;
+  cursor: pointer;
+  border: 2px solid var(--accent-color);
+  position: relative;
+}
+
+.card__like-button:focus {
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+/* ПСЕВДОЭЛЕМЕНТ С ЗАКРАШИВАНИЕМ КНОПКИ С ТЕКСТОМ */
+.card__like-button::before {
+  position: absolute;
+  content: '';
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inset: 0;
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-weight: 'wght' var(--main-font-card-text);
+  font-size: 14px;
+  line-height: 12.6px;
+  mix-blend-mode: difference;
+  color: var(--color-mix);
+}
+
+
+
+
+
+/* ФУТЕР */
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.button__floppy {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+  border: 2px solid var(--accent-color);
+  padding: 15px 20px;
+  margin: 50px auto 100px;
+  cursor: pointer;
+  background-color: var(--background-color);
+  position: relative;
+}
+
+.button__floppy::before {
+  position: absolute;
+  content: '';
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inset: 0;
+}
+
+.button__floppy:hover::before {
+  transform: scaleX(1);
+}
+
+.svg__floppy {
+  align-self: center;
+  width: 28px;
+  height: 28px;
+  color: var(--color-mix);
+  mix-blend-mode: difference;
+}
+
+/* МЕДИАЗАПРОС К КНОПКЕ "СОХРАНИТЬ НА ПАМЯТЬ". 
+МЕНЯЮ РАСПОЛОЖЕНИЕ СВГ И НАДПИСИ */
+@media (width > 800px) {
+  .button__floppy {
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
+  }
+
+  .svg__floppy {
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* ДИАЛОГ */
+dialog {
+  max-width: 341px;
+  padding: 30px 42px;
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+}
+
+@media (width > 800px) {
+  dialog {
+    max-width: 353px;
+  }
+}
+
+/* ДИАЛОГ КОГДА ОТКРЫТ */
+dialog[open] {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.7);
+} 
+
+/* КОНТЕНТ ДИАЛОГА В ВИДЕ СВГ И ТЕКСТА */
+.dialog__content {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+
+/* МЕНЯЮ РАЗМЕР СВГ В ДИАЛОГЕ */
+.svg__floppy__dialog {
+  width: 39px;
+  height: 39px;
+  color: var(--accent-color);
+  /* Иконка сжалась, отменяю сжатие */
+  flex-shrink: 0;
+}
+
+.dialog__content p {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  font-weight: 'wght' var(--main-font-card-text);
+  line-height: 21px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.dialog__button {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  font-weight: 'wght' var(--main-font-card-text);
+  line-height: 12.6px;
+  padding: 10px;
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+  position: relative;
+  cursor: pointer;
+}
+
+.dialog__button::before {
+  position: absolute;
+  content: '';
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  inset: 0;
+}
+
+.dialog__button:hover::before {
+  transform: scaleX(1);
+}
+

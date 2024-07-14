@@ -9,7 +9,6 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки 
 в виде сердца
 ✦ button__text — для обозначения текстового элемента 
@@ -18,3 +17,105 @@
 Кроме этого, не меняйте HTML переключателя тем. 
 Его разметка также гарантирует работу своего скрипта.
 */
+
+
+
+/* меняю расположение кнопки на 4 пикселя */
+@keyframes arrow {
+    from {
+      left: -16px;
+    }
+    to {
+      left: -12px;
+    }
+}
+
+/* СВОЙСТА АНИМАЦИЙ ДЛЯ СЕРДЦА */
+
+/* при наведении меняю цвет сердцевины плавно */
+.like-icon:hover .core {
+  transition: fill 0.3s linear;
+  fill: var(--accent-color);
+}
+
+.like-icon .core {
+  transition: fill 0.3s 0.03s linear;
+  fill: transparent;
+}
+
+/* при наведении меняю цвет главного тела тоже плавно
+с добавлением задержки(0.05s) */
+.like-icon:hover .main-body {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--contour-heart-color);
+}
+
+.like-icon .main-body {
+  transition: fill 0.3s linear;
+  fill: transparent;
+}
+
+/* при зажатии на сердце(дублирую свойства 
+как и для эффекта по наведению) */
+.like-icon:active .core {
+  transition: fill 0.3s linear;
+  fill: var(--main-heart-color);
+}
+
+.like-icon:active .main-body {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--main-heart-color);
+}
+
+/* А теперь самое вкусненькое! При клике
+мышкой(добавляется класс is-liked) */
+.like-icon.is-liked .core {
+  transition: fill 0.3s linear;
+  fill: var(--main-heart-color);
+}
+
+.like-icon.is-liked .main-body {
+  transition: fill 0.3s 0.05s linear;
+  fill: var(--main-heart-color);
+}
+
+.like-icon.is-liked .contour {
+  transition: fill 0.3s 0.06s linear;
+  fill: var(--main-heart-color);
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s 0.1s ease-in alternate;
+  /* СКЕЙЛ увеличивался слева направо, этим свойством
+  делаю ПОЗИЦИЮ СКЕЙЛА ОТ ЦЕНТРА */
+  transform-origin: center;
+}
+
+@keyframes heart-scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+/* делаю искры прозрачными */
+.like-icon .sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation: visible-sparks 0.3s 0.3s ease-in alternate;
+}
+
+@keyframes visible-sparks {
+  to {
+    opacity: 1;
+  }
+}
+
+.like-icon .contour {
+  transition: fill 0.1s linear;
+  fill: var(--contour-heart-color);
+}
