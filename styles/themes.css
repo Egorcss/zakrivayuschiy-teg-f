@@ -30,6 +30,30 @@
   --color-mix: #fff;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+  --main-font-card-title: 700;
+  --main-font-card-text: 400;
+  --background-color: #fff;
+  --accent-color: #000;
+  --background-image: repeating-linear-gradient(
+        to right,
+        #d3d3d3 0 2px,
+        transparent 2px 4px
+      ),
+        repeating-linear-gradient(
+        #d3d3d3 0 2px,
+        transparent 2px 4px
+      ),
+        linear-gradient(
+        #e7e7e7 0.01%, 
+        #1a1a1a
+      );
+  --stroke-color: #fff;    
+  --color-mix: #fff;
+  }  
+}
+
 /* ПЕРЕМЕННЫЕ СО ТЕМНОЙ ТЕМОЙ */
 :root.theme-dark {
   --main-font-card-title: 785;
@@ -54,7 +78,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root.theme-dark {
+  :root {
     --main-font-card-title: 785;
     --main-font-card-text: 465;
     --background-color: #000;

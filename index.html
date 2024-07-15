@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta scheme="light dark">
+    <meta name="color-scheme" content="light dark" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Закрывающий тег</title>
     <link rel="stylesheet" href="./fonts/fonts.css" />
@@ -11,20 +11,24 @@
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/animations.css" />
     <link rel="stylesheet" href="./styles/themes.css" />
-    <link rel="icon" href="./svg/favicon (1).svg">
+    <link rel="icon" href="./svg/favicon.svg">
     <script src="./scripts/set-theme.js"></script>
   </head>
 <body class="page">
 
 <!-- ХЭДЕР -->
 <header class="header">
-  <a href="#" class="header__title">&lt;/HTML&gt;</a>
-  <p class="header__text">закрывающий тег</p>
+  <a class="header__title text-transform">&lt;/html&gt;</a>
+  <h1 class="header__text text-transform">закрывающий тег</h1>
   <nav class="theme-menu header__theme-menu">
       <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
       <ul class="theme-menu__list">
         <li class="theme-menu__item">
-          <button type="button" data-theme="dark" class="theme-menu__button">
+          <button 
+            type="button" 
+            data-theme="dark" 
+            class="theme-menu__button text-transform"
+          >
             Темно
           </button>
         </li>
@@ -33,13 +37,17 @@
             type="button"
             data-theme="auto"
             disabled
-            class="theme-menu__button"
+            class="theme-menu__button text-transform"
           >
             Авто
           </button>
         </li>
         <li class="theme-menu__item">
-          <button type="button" data-theme="light" class="theme-menu__button">
+          <button 
+            type="button" 
+            data-theme="light" 
+            class="theme-menu__button text-transform"
+          >
             Светло
           </button>
         </li>
@@ -51,11 +59,12 @@
 
 <!-- ОСНОВНОЙ КОНТЕНТ -->
 <main class="main">
-  <div class="card">
+
+  <article class="card">
       <h2 class="card__title">Фритрек и нулевой спринт: Подготовка к работе</h2>
       <div class="card__image">
-        <img class="one-filter" src="./images/image (1).png" alt="Горы">
-        <p class="text-on-image">&lt;/HTML&gt;</p>
+        <img class="drop-shadow-filter" src="./images/image.png" alt="Картинка c машиной c фильтром drop-shadow!">
+        <p class="text-on-image">&lt;/html&gt;</p>
       </div>
       <p class="card__text">
         Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -95,17 +104,17 @@
         <!-- КНОПКА С НАДПИСЬЮ LIKE -->
         <button 
         type="button" 
-        class="card__like-button">
+        class="card__like-button scale__psevdoelement">
           <span class="button__text">Like</span>
         </button>
       
       </div>
-  </div>
-  <div class="card">
+  </article>
+  <article class="card">
     <h2 class="card__title">Едем дальше!</h2>
     <div class="card__image">
-      <img class="two-filter" src="./images/image (1).png" alt="Горы">
-      <p class="text-on-image">&lt;/HTML&gt;</p>
+      <img class="brightness-filter" src="./images/image.png" alt="Картинка c машиной c фильтром brightness!">
+      <p class="text-on-image">&lt;/html&gt;</p>
     </div>
     <p class="card__text">
       Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -145,17 +154,17 @@
       <!-- КНОПКА С НАДПИСЬЮ LIKE -->
       <button 
       type="button" 
-      class="card__like-button">
+      class="card__like-button scale__psevdoelement">
         <span class="button__text">Like</span>
       </button>
     
     </div>
-  </div>
-  <div class="card">
+  </article>
+  <article class="card">
   <h2 class="card__title">Едем дальше!</h2>
   <div class="card__image">
-    <img class="three-filter" src="./images/image (1).png" alt="Горы">
-    <p class="text-on-image">&lt;/HTML&gt;</p>
+    <img class="contrast-filter" src="./images/image.png" alt="Картинка c машиной c фильтром contrast!">
+    <p class="text-on-image">&lt;/html&gt;</p>
   </div>
   <p class="card__text">
     Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -195,17 +204,17 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button">
+    class="card__like-button scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
   </div>
-  </div>
-  <div class="card">
+  </article>
+  <article class="card">
   <h2 class="card__title">Едем дальше!</h2>
   <div class="card__image">
-    <img class="four-filter" src="./images/image (1).png" alt="Горы">
-    <p class="text-on-image">&lt;/HTML&gt;</p>
+    <img class="saturate-filter" src="./images/image.png" alt="Картинка c машиной c фильтром saturate!">
+    <p class="text-on-image">&lt;/htmlL&gt;</p>
   </div>
   <p class="card__text">
     Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -245,17 +254,17 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button">
+    class="card__like-button scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
   </div>
-  </div>
-  <div class="card">
+  </article>
+  <article class="card">
   <h2 class="card__title">Едем дальше!</h2>
   <div class="card__image">
-    <img class="five-filter" src="./images/image (1).png" alt="Горы">
-    <p class="text-on-image">&lt;/HTML&gt;</p>
+    <img class="blur-filter" src="./images/image.png" alt="Картинка c машиной c фильтром blur!">
+    <p class="text-on-image">&lt;/html&gt;</p>
   </div>
   <p class="card__text">
     Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -295,17 +304,17 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button">
+    class="card__like-button scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
   </div>
-  </div>
-  <div class="card">
+  </article>
+  <article class="card">
   <h2 class="card__title">Едем дальше!</h2>
   <div class="card__image">
-    <img class="six-filter" src="./images/image (1).png" alt="Горы">
-    <p class="text-on-image">&lt;/HTML&gt;</p>
+    <img class="grayscale-filter" src="./images/image.png" alt="Картинка c машиной c фильтром grayscale!">
+    <p class="text-on-image">&lt;/html&gt;</p>
   </div>
   <p class="card__text">
     Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -345,17 +354,17 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button">
+    class="card__like-button scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
   </div>
-  </div>
-  <div class="card">
+  </article>
+  <article class="card">
   <h2 class="card__title">Едем дальше!</h2>
   <div class="card__image">
-    <img class="seven-filter" src="./images/image (1).png" alt="Горы">
-    <p class="text-on-image">&lt;/HTML&gt;</p>
+    <img class="hue-rotate-filter" src="./images/image.png" alt="Картинка c машиной c фильтром hue-rotate!">
+    <p class="text-on-image">&lt;/html&gt;</p>
   </div>
   <p class="card__text">
     Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -395,17 +404,17 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button">
+    class="card__like-button scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
   </div>
-  </div>
-  <div class="card">
+  </article>
+  <article class="card">
   <h2 class="card__title">Едем дальше!</h2>
   <div class="card__image">
-    <img class="eight-filter" src="./images/image (1).png" alt="Горы">
-    <p class="text-on-image">&lt;/HTML&gt;</p>
+    <img class="sepia-and-invert-filter" src="./images/image.png" alt="Картинка c машиной c фильтром sepia и invert!">
+    <p class="text-on-image">&lt;/html&gt;</p>
   </div>
   <p class="card__text">
     Это было самое начало пути. Ha этом этапе важно было проникнуться основами 
@@ -445,38 +454,38 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button">
+    class="card__like-button scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
   </div>
-  </div>
+  </article>
+
+  <!-- Секция с кнопкой сохранить на память и с диалоговым окном -->
+  <section class="button-and-dialog">
+    <button class="button__floppy scale__psevdoelement" type="button" onclick="window['dialog'].showModal()">
+      <svg class="svg__floppy" viewBox="0 0 40 40">
+        <use href="./svg/floppy.svg#floppy"></use>
+      </svg>
+      <span class="button__text">Сохранить на память</span>
+    </button>
+    
+    <dialog id="dialog">
+      <div class="dialog__content">
+        <svg class="svg__floppy__dialog" viewBox="0 0 40 40">
+          <use href="./svg/floppy.svg#floppy"></use>
+        </svg>
+        <p>Вставьте дискету, чтобы продолжить</p>
+      </div>
+      <button class="dialog__button scale__psevdoelement" type="button" onclick="window['dialog'].close()">
+        <span class="button__text text-transform">ok</span>
+      </button>
+    </dialog>
+  </section>
+
 </main>
 
 
-
-<!-- ФУТЕР -->
-<footer class="footer">
-
-  <button class="button__floppy" type="button" onclick="window['dialog'].showModal()">
-    <svg class="svg__floppy" viewBox="0 0 40 40">
-      <use href="./svg/floppy.svg#floppy"></use>
-    </svg>
-    <span class="button__text">Сохранить на память</span>
-  </button>
-
-  <dialog id="dialog">
-    <div class="dialog__content">
-      <svg class="svg__floppy__dialog" viewBox="0 0 40 40">
-        <use href="./svg/floppy.svg#floppy"></use>
-      </svg>
-      <p>Вставьте дискету, чтобы продолжить</p>
-    </div>
-    <button class="dialog__button" type="button" onclick="window['dialog'].close()">
-      <span class="button__text">OK</span>
-    </button>
-  </dialog>
-</footer>
 
 <script src="./scripts/like.js"></script>
 </body>

@@ -35,29 +35,35 @@
 .header {
   max-width: 700px;
   min-height: 327px;
-  margin: 100px auto;
   background-color: var(--background-color);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: end;
-  /* от 20 до 30 пикселей */
-  row-gap: clamp(1.25rem, 1.0299rem + 0.939vw, 1.875rem);
+  margin: 100px auto;
+  /* от 22 до 30 пикселей */
+  row-gap: clamp(1.375rem, 1.1989rem + 0.7512vw, 1.875rem);
   border: 2px solid var(--accent-color);
 }
 
 .header__title {
+  /* от 49 до 65 пикселей */
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: 49px;
-  margin-top: 145px;
+  /* от 120 до 145 пикселей */
+  margin-top: clamp(7.5rem, 6.9498rem + 2.3474vw, 9.0625rem);
   text-decoration: none;
 }
 
+.header__title:focus {
+  outline: none;
+}
+
 .header__text {
+  /* от 14 до 23 пикселей */
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: 14px;
-  text-transform: uppercase;
 }
 
 /* СПИСОК С КНОПКАМИ */
@@ -74,13 +80,16 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-  text-transform: uppercase;
   position: relative;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 /* СТРЕЛОЧКА К АКТИВНОЙ КНОПКЕ */
 .theme-menu__button:disabled::before {
   position: absolute;
+  top: 0;
+  left: -16px;
   content: '▶';
   color: var(--accent-color);
   animation: arrow 0.5s ease-in-out infinite alternate;
@@ -143,7 +152,7 @@
 .card__title {
   margin: 5px 15px 5px 10px;
   font-size: 18px;
-  font-weight: 'wght' var(--main-font-card-title);
+  font-variation-settings: 'wght' var(--main-font-card-title);
   line-height: 21.78px;
   text-align: left;
 }
@@ -165,35 +174,35 @@
 }
 
 /* ФИЛЬТРЫ */
-.one-filter {
+.drop-shadow-filter {
   filter: drop-shadow(0 0 20px rgb(247, 247, 100));
 }
 
-.two-filter {
+.brightness-filter {
   filter: brightness(200%);
 }
 
-.three-filter {
+.contrast-filter {
   filter: contrast(300%);
 }
 
-.four-filter {
+.saturate-filter {
   filter: saturate(250%);
 }
 
-.five-filter {
+.blur-filter {
   filter: blur(3px);
 }
 
-.six-filter {
+.grayscale-filter {
   filter: grayscale(80%);
 }
 
-.seven-filter {
+.hue-rotate-filter {
   filter: hue-rotate(0.5turn);
 }
 
-.eight-filter {
+.sepia-and-invert-filter {
   filter: sepia(0.6) invert(100%);
 }
 
@@ -201,8 +210,8 @@
 .card__image .text-on-image {
   position: absolute;
   top: 25px;
-  right: 25px;
-  font-family: var(--accent-font);
+  right: 13px;
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
   font-weight: 400;
   line-height: 14px;
@@ -210,12 +219,22 @@
   opacity: 0.5;
   mix-blend-mode: hard-light;
   text-shadow: 0 0 1px var(--stroke-color);
+  text-transform: uppercase;
+}
+
+@media (width > 800px) {
+  .card__image .text-on-image {
+    right: 25px;
+  }
 }
 
 /* ПРОВЕРКА НА ПОДДЕРЖКУ КРУТОГО СВОЙСТВА */
-@supports(-webkit-text-stroke: 1px var(--stroke-color)) {
+@supports (-webkit-text-stroke: 1px var(--stroke-color)) 
+or 
+(text-stroke: 1px var(--stroke-color)) {
   .card__image .text-on-image {
     -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
     text-shadow: none;
   }
 } 
@@ -224,7 +243,7 @@
   padding: 25px;
   font-size: 18px;
   line-height: 21px;
-  font-weight: 'wght' var(--main-font-card-text);
+  font-variation-settings: 'wght' var(--main-font-card-text);
 }
 
 /* ОТМЕНЯЮ ОТСТУП СВЕРХУ У 2 АБЗАЦА */
@@ -235,6 +254,7 @@
 /* КНОПКИ С СЕРДЦЕМ И ТЕКСТОМ */
 .card__buttons {
   display: flex;
+  column-gap: 5px;
   justify-content: end;
   margin-right: 25px;
   margin-bottom: 25px;
@@ -272,7 +292,7 @@
 }
 
 /* ПСЕВДОЭЛЕМЕНТ С ЗАКРАШИВАНИЕМ КНОПКИ С ТЕКСТОМ */
-.card__like-button::before {
+.scale__psevdoelement::before {
   position: absolute;
   content: '';
   background-color: var(--accent-color);
@@ -282,27 +302,24 @@
   inset: 0;
 }
 
-.card__like-button:hover::before {
+.scale__psevdoelement:hover::before {
   transform: scaleX(1);
 }
 
 .button__text {
-  font-family: var(--accent-font);
-  font-weight: 'wght' var(--main-font-card-text);
+  font-family: var(--accent-font), fantasy;
+  font-variation-settings: 'wght' var(--main-font-card-text);
   font-size: 14px;
   line-height: 12.6px;
   mix-blend-mode: difference;
   color: var(--color-mix);
 }
 
-
-
-
-
-/* ФУТЕР */
-.footer {
-  display: flex;
-  justify-content: center;
+/* Для тех случаев, где класс переиспользуется, 
+но нужен конкретно где-то text-transform
+со значение uppercase */
+.text-transform {
+  text-transform: uppercase;
 }
 
 .button__floppy {
@@ -312,24 +329,16 @@
   align-items: center;
   border: 2px solid var(--accent-color);
   padding: 15px 20px;
-  margin: 50px auto 100px;
+  margin: 0 auto 100px;
   cursor: pointer;
   background-color: var(--background-color);
   position: relative;
 }
 
-.button__floppy::before {
-  position: absolute;
-  content: '';
-  background-color: var(--accent-color);
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-  inset: 0;
-}
-
-.button__floppy:hover::before {
-  transform: scaleX(1);
+.button__floppy:focus {
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 2px 2px 0 var(--accent-color);
 }
 
 .svg__floppy {
@@ -366,6 +375,7 @@ dialog {
 @media (width > 800px) {
   dialog {
     max-width: 353px;
+    padding: 30px;
   }
 }
 
@@ -397,37 +407,23 @@ dialog::backdrop {
 }
 
 .dialog__content p {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
-  font-weight: 'wght' var(--main-font-card-text);
+  font-variation-settings: 'wght' var(--main-font-card-text);
   line-height: 21px;
   text-transform: uppercase;
   color: var(--accent-color);
 }
 
 .dialog__button {
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), fantasy;
   font-size: 14px;
-  font-weight: 'wght' var(--main-font-card-text);
+  font-variation-settings: 'wght' var(--main-font-card-text);
   line-height: 12.6px;
   padding: 10px;
   border: 2px solid var(--accent-color);
   background-color: var(--background-color);
   position: relative;
   cursor: pointer;
-}
-
-.dialog__button::before {
-  position: absolute;
-  content: '';
-  background-color: var(--accent-color);
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-  inset: 0;
-}
-
-.dialog__button:hover::before {
-  transform: scaleX(1);
 }
 
