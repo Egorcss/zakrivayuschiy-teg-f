@@ -2,6 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <!-- метатег для используемых тем -->
     <meta name="color-scheme" content="light dark" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Закрывающий тег</title>
@@ -104,7 +105,7 @@
         <!-- КНОПКА С НАДПИСЬЮ LIKE -->
         <button 
         type="button" 
-        class="card__like-button scale__psevdoelement">
+        class="button card__like-button button-with-scale__psevdoelement">
           <span class="button__text">Like</span>
         </button>
       
@@ -154,7 +155,7 @@
       <!-- КНОПКА С НАДПИСЬЮ LIKE -->
       <button 
       type="button" 
-      class="card__like-button scale__psevdoelement">
+      class="button card__like-button button-with-scale__psevdoelement">
         <span class="button__text">Like</span>
       </button>
     
@@ -204,7 +205,7 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button scale__psevdoelement">
+    class="button card__like-button button-with-scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
@@ -254,7 +255,7 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button scale__psevdoelement">
+    class="button card__like-button button-with-scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
@@ -304,7 +305,7 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button scale__psevdoelement">
+    class="button card__like-button button-with-scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
@@ -354,7 +355,7 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button scale__psevdoelement">
+    class="button card__like-button button-with-scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
@@ -404,7 +405,7 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button scale__psevdoelement">
+    class="button card__like-button button-with-scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
@@ -454,7 +455,7 @@
     <!-- КНОПКА С НАДПИСЬЮ LIKE -->
     <button 
     type="button" 
-    class="card__like-button scale__psevdoelement">
+    class="button card__like-button button-with-scale__psevdoelement">
       <span class="button__text">Like</span>
     </button>
   
@@ -462,26 +463,26 @@
   </article>
 
   <!-- Секция с кнопкой сохранить на память и с диалоговым окном -->
-  <section class="button-and-dialog">
-    <button class="button__floppy scale__psevdoelement" type="button" onclick="window['dialog'].showModal()">
+  <div class="button-and-dialog">
+    <button class="button button__floppy button-with-scale__psevdoelement" type="button" onclick="window['dialog-id'].showModal()">
       <svg class="svg__floppy" viewBox="0 0 40 40">
         <use href="./svg/floppy.svg#floppy"></use>
       </svg>
       <span class="button__text">Сохранить на память</span>
     </button>
     
-    <dialog id="dialog">
+    <dialog class="dialog" id="dialog-id">
       <div class="dialog__content">
         <svg class="svg__floppy__dialog" viewBox="0 0 40 40">
           <use href="./svg/floppy.svg#floppy"></use>
         </svg>
         <p>Вставьте дискету, чтобы продолжить</p>
       </div>
-      <button class="dialog__button scale__psevdoelement" type="button" onclick="window['dialog'].close()">
+      <button class="button dialog__button button-with-scale__psevdoelement" type="button" onclick="window['dialog-id'].close()">
         <span class="button__text text-transform">ok</span>
       </button>
     </dialog>
-  </section>
+  </div>
 
 </main>
 

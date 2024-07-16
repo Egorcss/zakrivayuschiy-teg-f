@@ -34,7 +34,6 @@
 /* ХЭДЕР */
 .header {
   max-width: 700px;
-  min-height: 327px;
   background-color: var(--background-color);
   font-family: var(--accent-font), fantasy;
   display: flex;
@@ -251,6 +250,13 @@ or
   padding-top: 0;
 }
 
+/* ОБЩИЕ СТИЛИ ДЛЯ КНОПОК */
+.button {
+  background-color: transparent;
+  transition: box-shadow 0.3s ease;
+  border: 2px solid var(--accent-color);
+}
+
 /* КНОПКИ С СЕРДЦЕМ И ТЕКСТОМ */
 .card__buttons {
   display: flex;
@@ -278,21 +284,18 @@ or
 
 /* КНОПКА С ТЕКСТОМ */
 .card__like-button {
-  background-color: transparent;
   padding: 5px 35px;
   cursor: pointer;
-  border: 2px solid var(--accent-color);
   position: relative;
 }
 
 .card__like-button:focus {
   outline: none;
-  transition: box-shadow 0.3s ease;
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
 /* ПСЕВДОЭЛЕМЕНТ С ЗАКРАШИВАНИЕМ КНОПКИ С ТЕКСТОМ */
-.scale__psevdoelement::before {
+.button-with-scale__psevdoelement::before {
   position: absolute;
   content: '';
   background-color: var(--accent-color);
@@ -302,7 +305,7 @@ or
   inset: 0;
 }
 
-.scale__psevdoelement:hover::before {
+.button-with-scale__psevdoelement:hover::before {
   transform: scaleX(1);
 }
 
@@ -327,7 +330,6 @@ or
   flex-direction: column;
   row-gap: 8px;
   align-items: center;
-  border: 2px solid var(--accent-color);
   padding: 15px 20px;
   margin: 0 auto 100px;
   cursor: pointer;
@@ -337,7 +339,6 @@ or
 
 .button__floppy:focus {
   outline: none;
-  transition: box-shadow 0.3s ease;
   box-shadow: 2px 2px 0 var(--accent-color);
 }
 
@@ -365,29 +366,28 @@ or
 }
 
 /* ДИАЛОГ */
-dialog {
+.dialog {
   max-width: 341px;
   padding: 30px 42px;
-  border: 2px solid var(--accent-color);
   background-color: var(--background-color);
 }
 
 @media (width > 800px) {
-  dialog {
+  .dialog {
     max-width: 353px;
     padding: 30px;
   }
 }
 
 /* ДИАЛОГ КОГДА ОТКРЫТ */
-dialog[open] {
+.dialog[open] {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
 }
 
-dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.7);
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
 } 
 
 /* КОНТЕНТ ДИАЛОГА В ВИДЕ СВГ И ТЕКСТА */
@@ -421,7 +421,6 @@ dialog::backdrop {
   font-variation-settings: 'wght' var(--main-font-card-text);
   line-height: 12.6px;
   padding: 10px;
-  border: 2px solid var(--accent-color);
   background-color: var(--background-color);
   position: relative;
   cursor: pointer;
