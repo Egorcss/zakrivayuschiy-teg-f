@@ -255,6 +255,7 @@ or
   background-color: transparent;
   transition: box-shadow 0.3s ease;
   border: 2px solid var(--accent-color);
+  outline: none;
 }
 
 /* КНОПКИ С СЕРДЦЕМ И ТЕКСТОМ */
@@ -354,7 +355,6 @@ or
 МЕНЯЮ РАСПОЛОЖЕНИЕ СВГ И НАДПИСИ */
 @media (width > 800px) {
   .button__floppy {
-    display: flex;
     flex-direction: row;
     column-gap: 8px;
   }
